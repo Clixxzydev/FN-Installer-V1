@@ -8,24 +8,29 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        Console.WriteLine("Select a file to download:");
-        Console.WriteLine("1. 8.51");
-        Console.WriteLine("2. 9.10");
-        Console.WriteLine("3. 14.30 NOT WORKING");
+        Console.WriteLine("Select a Build to download:");
+        Console.WriteLine("1. 7.40");
+        Console.WriteLine("2. 8.51");
+        Console.WriteLine("3. 9.10");
+        Console.WriteLine("4. 9.51");
+        Console.WriteLine("5. 11.31");
+        Console.WriteLine("6. 13.40");
+        Console.WriteLine("7. 14.30 NOT WORKING");
         int choice = int.Parse(Console.ReadLine());
 
         string[] urls = {
+            "https://public.simplyblk.xyz/7.40.rar",
             "https://public.simplyblk.xyz/8.51.rar",
+            "https://public.simplyblk.xyz/7.40.rar",
             "https://public.simplyblk.xyz/9.10.rar",
+            "https://public.simplyblk.xyz/11.31.rar",
+            "https://public.simplyblk.xyz/13.40.zip",
             "https://drive.google.com/uc?export=download&id=1Ah0IiQrKaMUEmXCFTGlVemR3C3hDifJH"
         };
 
         Console.WriteLine("Enter the download directory:");
         string downloadDirectory = Console.ReadLine();
 
-        string filePath = Path.Combine(downloadDirectory, $"file{choice}.rar");
-        await DownloadFileAsync(urls[choice - 1], filePath);
-        ExtractRar(filePath);
     }
 
     static async Task DownloadFileAsync(string url, string filePath)
@@ -41,10 +46,4 @@ class Program
         }
     }
 
-    static void ExtractRar(string filePath)
-    {
-        string extractPath = Path.Combine(Path.GetDirectoryName(filePath), "extracted");
-        System.IO.Compression.ZipFile.ExtractToDirectory(filePath, extractPath);
-        Console.WriteLine($"Files extracted to: {extractPath}");
-    }
 }
