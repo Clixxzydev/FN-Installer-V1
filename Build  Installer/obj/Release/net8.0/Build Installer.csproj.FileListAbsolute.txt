@@ -1,0 +1,22 @@
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\Build Installer.exe
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\Build Installer.deps.json
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\Build Installer.runtimeconfig.json
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\Build Installer.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\Build Installer.pdb
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\SharpCompress.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\ZstdSharp.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\System.Windows.Forms.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\Accessibility.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\System.Runtime.Serialization.Formatters.Soap.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\bin\Release\net8.0\System.Deployment.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.csproj.AssemblyReference.cache
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.AssemblyInfoInputs.cache
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.AssemblyInfo.cs
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.csproj.CoreCompileInputs.cache
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build In.E8EADBB9.Up2Date
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\refint\Build Installer.dll
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.pdb
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\Build Installer.genruntimeconfig.cache
+C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\obj\Release\net8.0\ref\Build Installer.dll
