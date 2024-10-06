@@ -186,7 +186,11 @@ class Program
                             if (totalBytes != -1)
                             {
                                 var percentage = (int)((double)readBytes / totalBytes * 100);
-                                Console.Write($"\r{buildVersion} download progress: {percentage}%");
+                                Console.Write($"\r{buildVersion} download progress: {percentage}% | {FormatFileSize(readBytes)} / {FormatFileSize(totalBytes)}");
+                            }
+                            else
+                            {
+                                Console.Write($"\r{buildVersion} download progress: {FormatFileSize(readBytes)} downloaded");
                             }
                         }
                     }
@@ -200,6 +204,19 @@ class Program
             Console.WriteLine($"\nError downloading file {buildVersion}: {httpEx.Message}");
             throw;
         }
+    }
+
+    private static string FormatFileSize(long bytes)
+    {
+        string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB" };
+        int counter = 0;
+        decimal number = (decimal)bytes;
+        while (Math.Round(number / 1024) >= 1)
+        {
+            number /= 1024;
+            counter++;
+        }
+        return string.Format("{0:n1}{1}", number, suffixes[counter]);
     }
 
     private static async Task ExtractFileAsync(string sourceFile, string destinationFolder, string buildVersion)

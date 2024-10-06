@@ -18,8 +18,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -38,16 +42,12 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Clixxzy\\source\\repos\\Build  Installer\\Build  Installer\\Program.cs",
               "RelativeDocumentMoniker": "Build  Installer\\Program.cs",
-              "ToolTip": "C:\\Users\\Clixxzy\\source\\repos\\Build  Installer\\Build  Installer\\Program.cs*",
-              "RelativeToolTip": "Build  Installer\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANUAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Clixxzy\\source\\repos\\Build  Installer\\Build  Installer\\Program.cs",
+              "RelativeToolTip": "Build  Installer\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T09:32:28.044Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
