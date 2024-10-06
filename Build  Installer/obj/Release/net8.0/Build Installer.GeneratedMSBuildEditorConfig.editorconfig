@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Build Installer
-build_property.ProjectDir = C:\Users\Clixxzy\source\repos\Build  Installer\Build  Installer\
+build_property.ProjectDir = C:\Users\Clixxzy\Documents\GitHub\FN-Installer-V1\Build  Installer\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

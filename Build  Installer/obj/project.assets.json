@@ -1607,11 +1607,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Clixxzy\\source\\repos\\Build  Installer\\Build  Installer\\Build Installer.csproj",
+      "projectUniqueName": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Build Installer.csproj",
       "projectName": "Build Installer",
-      "projectPath": "C:\\Users\\Clixxzy\\source\\repos\\Build  Installer\\Build  Installer\\Build Installer.csproj",
+      "projectPath": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Build Installer.csproj",
       "packagesPath": "C:\\Users\\Clixxzy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Clixxzy\\source\\repos\\Build  Installer\\Build  Installer\\obj\\",
+      "outputPath": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Clixxzy\\AppData\\Roaming\\NuGet\\NuGet.Config",
