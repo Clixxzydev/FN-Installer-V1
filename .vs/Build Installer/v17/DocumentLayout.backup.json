@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|c:\\users\\clixxzy\\documents\\github\\fn-installer-v1\\build  installer\\build installer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|solutionrelative:build  installer\\build installer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|c:\\users\\clixxzy\\documents\\github\\fn-installer-v1\\build  installer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|solutionrelative:build  installer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|c:\\users\\clixxzy\\documents\\github\\fn-installer-v1\\build  installer\\icon1.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|solutionrelative:build  installer\\icon1.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|c:\\users\\clixxzy\\documents\\github\\fn-installer-v1\\build  installer\\build installer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A18037F9-CA15-4617-83AE-6ED3BFDAF44C}|Build  Installer\\Build Installer.csproj|solutionrelative:build  installer\\build installer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,26 +30,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Build Installer.csproj",
-              "DocumentMoniker": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Build Installer.csproj",
-              "RelativeDocumentMoniker": "Build  Installer\\Build Installer.csproj",
-              "ToolTip": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Build Installer.csproj*",
-              "RelativeToolTip": "Build  Installer\\Build Installer.csproj*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-30T09:40:33.934Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "Icon1.ico - Icon [32x32, 32 bit, BMP]",
+              "DocumentMoniker": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Icon1.ico",
+              "RelativeDocumentMoniker": "Build  Installer\\Icon1.ico",
+              "ToolTip": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Icon1.ico - Icon [32x32, 32 bit, BMP]",
+              "RelativeToolTip": "Build  Installer\\Icon1.ico - Icon [32x32, 32 bit, BMP]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001525|",
+              "WhenOpened": "2024-10-07T06:38:54.786Z",
+              "EditorCaption": " - Icon [32x32, 32 bit, BMP]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "Build Installer.csproj",
+              "DocumentMoniker": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Build Installer.csproj",
+              "RelativeDocumentMoniker": "Build  Installer\\Build Installer.csproj",
+              "ToolTip": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Build Installer.csproj",
+              "RelativeToolTip": "Build  Installer\\Build Installer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-30T09:40:33.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Program.cs",
               "RelativeDocumentMoniker": "Build  Installer\\Program.cs",
               "ToolTip": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Program.cs",
               "RelativeToolTip": "Build  Installer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAQBAAAAAAAAAAAAACoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T09:32:28.044Z",
               "EditorCaption": ""

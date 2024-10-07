@@ -9,6 +9,7 @@ using System.Linq;
 
 class Program
 {
+     // add "Link_Here", for more download links
     private static readonly string[] fileUrls = new string[]
     {
         "https://public.simplyblk.xyz/5.40.rar",
@@ -22,12 +23,14 @@ class Program
         "https://public.simplyblk.xyz/9.41.rar",
         "https://public.simplyblk.xyz/11.31.rar",
         "https://public.simplyblk.xyz/Fortnite%2012.41.zip",
+        "https://public.simplyblk.xyz/13.00.rar",
         "https://public.simplyblk.xyz/13.40.zip",
         "https://www.dropbox.com/scl/fi/i7rsxm5pkkn4svj4vtxf7/14.30.rar?rlkey=11rcx7jaoamn5up5b4bgkryvt&st=2hungogj&dl=1"
     };
 
     private static readonly string[] buildVersions = new string[]
     {
+        // Change names if necessary
         "5.40",
         "7.00",
         "7.10",
@@ -39,6 +42,7 @@ class Program
         "9.41",
         "11.31",
         "12.41",
+        "13.00",
         "13.40",
         "14.30"
     };
@@ -73,6 +77,7 @@ class Program
             string downloadPath;
             while (true)
             {
+                // the reason why its false postive for a trojan
                 Console.WriteLine("Enter the download path (leave blank for current directory):");
                 downloadPath = Console.ReadLine().Trim();
                 if (string.IsNullOrWhiteSpace(downloadPath))
@@ -207,6 +212,8 @@ class Program
     }
 
     private static string FormatFileSize(long bytes)
+
+        // Very simple download meter
     {
         string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB" };
         int counter = 0;
