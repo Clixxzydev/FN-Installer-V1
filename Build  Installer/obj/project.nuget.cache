@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "+Tlqw4/BeI8=",
+  "dgSpecHash": "eva04j2BgmI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Clixxzy\\Documents\\GitHub\\FN-Installer-V1\\Build  Installer\\Build Installer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Clixxzy\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Clixxzy\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Clixxzy\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Clixxzy\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Clixxzy\\.nuget\\packages\\runtime.native.system.io.compression\\4.3.0\\runtime.native.system.io.compression.4.3.0.nupkg.sha512",
     "C:\\Users\\Clixxzy\\.nuget\\packages\\sharpcompress\\0.38.0\\sharpcompress.0.38.0.nupkg.sha512",

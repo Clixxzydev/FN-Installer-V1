@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Build Installer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d978d370377c2e0859df8d11f386b11497b045e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c48a1118dba4d2c6aaf3620ccb8820c29d80bd2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Build Installer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Build Installer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
