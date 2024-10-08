@@ -15,7 +15,7 @@ namespace EasyInstallerV2
 {
     class Program
     {
-        // URLs and configurations for the first part
+        // URLs for downloading files
         private static readonly string[] fileUrls = new string[]
         {
             "https://public.simplyblk.xyz/5.40.rar",
@@ -59,42 +59,71 @@ namespace EasyInstallerV2
             public long Size = 0;
         }
 
+        // Method to start the main menu
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Welcome to the build installer. Made by Clixxzy");
-
             while (true)
             {
-                Console.WriteLine("\nMain Menu:");
-                Console.WriteLine("1. Web installer");
-                Console.WriteLine("2. Manifest installer");
+                Console.Clear();
+                Console.WriteLine("Welcome to the build installer, Made by clixxzy:");
+                Console.WriteLine("1. Web Installer");
+                Console.WriteLine("2. Manifest Installer");
                 Console.WriteLine("3. Exit");
-                Console.Write("Choose an option: ");
+                Console.Write("Choose an option (1, 2, or 3): ");
+                string choice = Console.ReadLine();
 
-                var choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        // Call the functionality from Program (1).cs
+                        await WebInstallerMenu();
+                        break;
 
-                if (choice == "1")
-                {
-                    await DownloadBuildsMenu();
-                }
-                else if (choice == "2")
-                {
-                    await EasyInstallerMenu();
-                }
-                else if (choice == "3")
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid option, please try again.");
+                    case "2":
+                        // Call the functionality from Program.cs
+                        await ManifestInstallerMenu();
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Exiting the application. Goodbye!");
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
                 }
             }
+        }
 
-            Console.WriteLine("Exiting the program. Press any key to close.");
+        // Web Installer (from Program (1).cs)
+        private static async Task WebInstallerMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Web Installer");
+
+            // Original logic from Program (1).cs DownloadBuildsMenu
+            await DownloadBuildsMenu();
+
+            // Return to menu after execution
+            Console.WriteLine("\nPress any key to return to the main menu.");
             Console.ReadKey();
         }
 
+        // Manifest Installer (from Program.cs)
+        private static async Task ManifestInstallerMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Manifest Installer");
+
+            // Original logic from Program.cs Main method
+            ManifestInstallerMain();
+
+            // Return to menu after execution
+            Console.WriteLine("\nPress any key to return to the main menu.");
+            Console.ReadKey();
+        }
+
+        // Original logic from Program (1).cs for web installer
         private static async Task DownloadBuildsMenu()
         {
             Console.WriteLine("Available Builds:");
@@ -138,22 +167,19 @@ namespace EasyInstallerV2
 
             foreach (int index in selectedIndices)
             {
-                await DownloadAndExtractFileAsync(fileUrls[index - 1], Path.Combine(downloadPath, buildVersions[index - 1]), buildVersions[index - 1]);
+                await DownloadAndExtractFileAsync(fileUrls[index - 1], downloadPath, buildVersions[index - 1]);
             }
 
             Console.WriteLine("All downloads and extractions are complete.");
-            Console.WriteLine("Press any key to return to the main menu.");
-            Console.ReadKey();
         }
 
-        private static async Task EasyInstallerMenu()
+        // Original logic from Program.cs for manifest installer
+        private static void ManifestInstallerMain()
         {
             var httpClient = new WebClient();
             List<string> versions = JsonConvert.DeserializeObject<List<string>>(httpClient.DownloadString(BASE_URL + "/versions.json"));
 
             Console.Clear();
-            Console.Title = "Build installer Manifest Version";
-            Console.Write("\n\nBuild installer Manifest Version\n\n");
             Console.WriteLine("\nAvailable manifests:");
 
             for (int i = 0; i < versions.Count; i++)
@@ -170,7 +196,7 @@ namespace EasyInstallerV2
             {
                 targetVersionIndex = int.Parse(targetVersionStr);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return; // Go back to the main menu
             }
@@ -185,10 +211,12 @@ namespace EasyInstallerV2
             var targetPath = Console.ReadLine();
             Console.Write("\n");
 
-            await Download(manifest, targetVersion, targetPath);
+            // Call the correct Download method with the manifest parameters
+            DownloadManifest(manifest, targetVersion, targetPath).GetAwaiter().GetResult();
         }
 
-        private static async Task Download(ManifestFile manifest, string version, string resultPath)
+        // Fixed: Method definition for the missing "Download" method for manifest files
+        private static async Task DownloadManifest(ManifestFile manifest, string version, string resultPath)
         {
             long totalBytes = manifest.Size;
             long completedBytes = 0;
@@ -206,6 +234,7 @@ namespace EasyInstallerV2
                 try
                 {
                     WebClient httpClient = new WebClient();
+
                     string outputFilePath = Path.Combine(resultPath, chunkedFile.File);
                     var fileInfo = new FileInfo(outputFilePath);
 
@@ -266,29 +295,25 @@ namespace EasyInstallerV2
                 }
             }));
 
-            Console.WriteLine("\n\nFinished Downloading.\nPress any key to return to the main menu!");
+            Console.WriteLine("\n\nFinished Downloading.\nPress any key to return to the main menu.");
             Console.ReadKey();
         }
 
-        private static async Task DownloadAndExtractFileAsync(string url, string outputDirectory, string version)
+        // Helper method to format bytes with a suffix
+        private static string FormatBytesWithSuffix(long bytes)
         {
-            using (HttpClient client = new HttpClient())
-            {
-                var response = await client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
+            string[] suffixes = { "B", "KB", "MB", "GB", "TB" };
+            int i = 0;
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                {
-                    using (var archive = ArchiveFactory.Open(stream))
-                    {
-                        foreach (var entry in archive.Entries.Where(e => !e.IsDirectory))
-                        {
-                            var outputPath = Path.Combine(outputDirectory, entry.Key);
-                            entry.WriteToFile(outputPath, new ExtractionOptions() { Overwrite = true });
-                        }
-                    }
-                }
+            double dblSByte = bytes;
+            while (bytes >= 1024 && i < suffixes.Length - 1)
+            {
+                dblSByte = bytes / 1024.0;
+                bytes /= 1024;
+                i++;
             }
+
+            return $"{dblSByte:0.##} {suffixes[i]}";
         }
 
         private static List<int> ParseUserInput(string input)
@@ -312,18 +337,100 @@ namespace EasyInstallerV2
             }
         }
 
-        private static string FormatBytesWithSuffix(long bytes)
+        // Updated method to handle streaming the download to avoid buffer size issues
+        private static async Task DownloadAndExtractFileAsync(string url, string outputDirectory, string version)
         {
-            string[] suffixes = { "B", "KB", "MB", "GB", "TB" };
-            int i = 0;
-
-            while (bytes >= 1024 && i < suffixes.Length - 1)
+            using (HttpClient client = new HttpClient())
             {
-                bytes /= 1024;
-                i++;
-            }
+                // Ensure the output directory exists
+                if (!Directory.Exists(outputDirectory))
+                {
+                    Directory.CreateDirectory(outputDirectory);
+                }
 
-            return $"{bytes} {suffixes[i]}";
+                // Get the file info from the HTTP headers to determine total file size
+                var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead); // Stream the download
+                response.EnsureSuccessStatusCode();
+                long totalBytes = response.Content.Headers.ContentLength ?? -1; // Get total file size in bytes
+
+                // Set the final output path for the downloaded file
+                string outputFilePath = Path.Combine(outputDirectory, $"{version}.zip"); // Change to .rar if needed
+
+                // Initialize progress tracking for download
+                long completedBytes = 0;
+                int progressLength = 0;
+
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                using (var fileStream = new FileStream(outputFilePath, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
+                {
+                    byte[] buffer = new byte[8192]; // Read in chunks of 8 KB
+                    int bytesRead;
+
+                    while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                    {
+                        // Write to the file
+                        await fileStream.WriteAsync(buffer, 0, bytesRead);
+                        completedBytes += bytesRead;
+
+                        // Calculate and display the download progress
+                        double progress = (double)completedBytes / totalBytes * 100;
+                        string progressMessage = $"\rDownloading: {FormatBytesWithSuffix(completedBytes)} / {FormatBytesWithSuffix(totalBytes)} ({progress:F2}%)";
+
+                        // Ensure consistent length in progress display
+                        int padding = progressLength - progressMessage.Length;
+                        if (padding > 0)
+                            progressMessage += new string(' ', padding);
+
+                        Console.Write(progressMessage);
+                        progressLength = progressMessage.Length;
+                    }
+                }
+
+                // Extraction Logic with Progress Tracking
+                try
+                {
+                    using (var archive = ArchiveFactory.Open(outputFilePath))
+                    {
+                        // Count the total number of files and directories
+                        var totalEntries = archive.Entries.Count();
+                        int currentEntry = 0;
+
+                        foreach (var entry in archive.Entries.Where(e => !e.IsDirectory))
+                        {
+                            // Extract the current entry
+                            try
+                            {
+                                var outputPath = Path.Combine(outputDirectory, entry.Key);
+
+                                // Ensure the directory exists
+                                string directory = Path.GetDirectoryName(outputPath);
+                                if (!Directory.Exists(directory))
+                                {
+                                    Directory.CreateDirectory(directory);
+                                }
+
+                                // Extract the file
+                                entry.WriteToFile(outputPath, new ExtractionOptions() { Overwrite = true });
+
+                                // Update the progress
+                                currentEntry++;
+                                double extractionProgress = (double)currentEntry / totalEntries * 100;
+                                Console.Write($"\rExtracting: {extractionProgress:F2}%");
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"\nError extracting {entry.Key}: {ex.Message}");
+                            }
+                        }
+                    }
+
+                    Console.WriteLine("\nDownload and extraction complete.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"\nError extracting files: {ex.Message}");
+                }
+            }
         }
     }
 }
