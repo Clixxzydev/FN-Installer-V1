@@ -65,7 +65,7 @@ namespace EasyInstallerV2
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Welcome to the build installer, Made by clixxzy:");
+                Console.WriteLine("Welcome To the build installer Made by Clixxzy:");
                 Console.WriteLine("1. Web Installer");
                 Console.WriteLine("2. Manifest Installer");
                 Console.WriteLine("3. Exit");
@@ -104,9 +104,8 @@ namespace EasyInstallerV2
             // Original logic from Program (1).cs DownloadBuildsMenu
             await DownloadBuildsMenu();
 
-            // Return to menu after execution
-            Console.WriteLine("\nPress any key to return to the main menu.");
-            Console.ReadKey();
+            // Return to main menu after execution
+            ReturnToMainMenu();
         }
 
         // Manifest Installer (from Program.cs)
@@ -118,7 +117,13 @@ namespace EasyInstallerV2
             // Original logic from Program.cs Main method
             ManifestInstallerMain();
 
-            // Return to menu after execution
+            // Return to main menu after execution
+            ReturnToMainMenu();
+        }
+
+        // Method to return to main menu after download or extraction is complete
+        private static void ReturnToMainMenu()
+        {
             Console.WriteLine("\nPress any key to return to the main menu.");
             Console.ReadKey();
         }
@@ -207,9 +212,25 @@ namespace EasyInstallerV2
             var targetVersion = versions[targetVersionIndex].Split("-")[1];
             var manifest = JsonConvert.DeserializeObject<ManifestFile>(httpClient.DownloadString(BASE_URL + $"/{targetVersion}/{targetVersion}.manifest"));
 
-            Console.Write("Please enter a game folder location: ");
-            var targetPath = Console.ReadLine();
-            Console.Write("\n");
+            string targetPath;
+            while (true)
+            {
+                Console.WriteLine("Enter the game folder location (leave blank for current directory):");
+                targetPath = Console.ReadLine().Trim();
+                if (string.IsNullOrWhiteSpace(targetPath))
+                {
+                    targetPath = Directory.GetCurrentDirectory();
+                    break;
+                }
+                else if (IsValidPath(targetPath))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid path. Please enter a valid directory path.");
+                }
+            }
 
             // Call the correct Download method with the manifest parameters
             DownloadManifest(manifest, targetVersion, targetPath).GetAwaiter().GetResult();
@@ -415,7 +436,13 @@ namespace EasyInstallerV2
                                 // Update the progress
                                 currentEntry++;
                                 double extractionProgress = (double)currentEntry / totalEntries * 100;
-                                Console.Write($"\rExtracting: {extractionProgress:F2}%");
+
+                                // Clear the current console line to avoid overlap
+                                Console.SetCursorPosition(0, Console.CursorTop);
+                                Console.Write(new string(' ', Console.WindowWidth)); // Clear current line
+                                Console.SetCursorPosition(0, Console.CursorTop);   // Reset cursor
+
+                                Console.Write($"Extracting: {extractionProgress:F2}%");
                             }
                             catch (Exception ex)
                             {
